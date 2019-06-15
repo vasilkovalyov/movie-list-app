@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+    <link media="all" rel="stylesheet" href="css/main.css">
+    <script src="js/script.js" type="module" defer></script>
+</head>
+
+<body>
+    <div id="wrapper" class="wrapper">
+        <div class="caption-holder">
+            <h1>Movie List</h1>
+            <p>Add short Description</p>
+        </div>
+
+        <div class="filter-holder">
+            <ul class="filter-by-letter">
+                <li><a href="#" data-letter='All'>ALL</a></li>
+                <li><a href="#" data-letter='A'>A</a></li>
+                <li><a href="#" data-letter='B'>B</a></li>
+                <li><a href="#" data-letter='C'>C</a></li>
+                <li><a href="#" data-letter='D'>D</a></li>
+                <li><a href="#" data-letter='E'>E</a></li>
+                <li><a href="#" data-letter='F'>F</a></li>
+                <li><a href="#" data-letter='G'>G</a></li>
+                <li><a href="#" data-letter='H'>H</a></li>
+                <li><a href="#" data-letter='I'>I</a></li>
+                <li><a href="#" data-letter='J'>J</a></li>
+                <li><a href="#" data-letter='K'>K</a></li>
+                <li><a href="#" data-letter='L'>L</a></li>
+                <li><a href="#" data-letter='M'>M</a></li>
+                <li><a href="#" data-letter='N'>N</a></li>
+                <li><a href="#" data-letter='O'>O</a></li>
+                <li><a href="#" data-letter='P'>P</a></li>
+                <li><a href="#" data-letter='Q'>Q</a></li>
+                <li><a href="#" data-letter='R'>R</a></li>
+                <li><a href="#" data-letter='S'>S</a></li>
+                <li><a href="#" data-letter='T'>T</a></li>
+                <li><a href="#" data-letter='U'>U</a></li>
+                <li><a href="#" data-letter='V'>V</a></li>
+                <li><a href="#" data-letter='W'>W</a></li>
+                <li><a href="#" data-letter='X'>X</a></li>
+                <li><a href="#" data-letter='Y'>Y</a></li>
+                <li><a href="#" data-letter='Z'>Z</a></li>
+            </ul>
+        </div>
+
+
+        <ul class="search-result">
+            <li>
+                <p>Search result: <span class="search-count">0</span></p>
+            </li>
+            <li>
+                <p>Total result: <span class="total-count">0</span></p>
+            </li>
+            <li>
+                <select class="sort-movies">
+                    <option value="default">Sort by</option>
+                    <option value="year">Year</option>
+                    <option value="rating">Rating</option>
+                </select>
+            </li>
+        </ul>
+        <div class="movie-wrapper">
+            <table class="movie-list">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Poster</th>
+                        <th>Movie Name</th>
+                        <th>Year</th>
+                        <th>Country</th>
+                        <th>Genre</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody class="movie-body-list"></tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</body>
+
+</div>

@@ -1,0 +1,53 @@
+.movie-wrapper {
+    width: 100%;
+    @media only screen and (max-width: 756px) {
+        overflow-x: auto;
+        margin: 0 auto;
+    }
+}
+
+.movie-list {
+    width: 100%;
+    th {
+        background: $green;
+        color: $white;
+        font-size: 1em;
+        padding: 10px 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        @media screen and (max-width: 1024px) {
+            font-size: 14px;
+        }
+    }
+    td {
+        padding: 10px 12px;
+        text-align: center;
+        max-width: 200px;
+        width: 100%;
+    }
+    .image-holder {
+        max-width: 100px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.movie-body-list {
+    td {
+        width: 100px;
+        &:first-child {
+            width: 60px;
+        }
+    }
+}
+
+.movie-item {
+    td {
+        &:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+        &:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+    }
+}

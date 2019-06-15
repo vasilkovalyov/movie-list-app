@@ -1,0 +1,27 @@
+.wrapper {
+    padding: 20px 15px;
+    overflow: hidden;
+}
+
+.caption-holder {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+    @media only screen and (min-width: 756px) {
+        max-width: 400px;
+        padding-bottom: 20px;
+    }
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        @media screen and (min-width: 756px) {
+            font-size: 35px;
+        }
+    }
+    p {
+        color: $green;
+        font-size: 20px;
+        letter-spacing: 0.1em;
+    }
+}
