@@ -1,6 +1,1 @@
-node_modules/
-fonts/
-images/
-app/scss/base/_mixins.scss
-app/scss/base/_reset.scss
-
+node_modules

@@ -10,7 +10,6 @@
 .filter-by-letter {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     padding: 0;
     margin: 0;
     @media screen and (max-width: 756px) {
@@ -18,11 +17,20 @@
         padding: 10px 0;
         width: 100%;
     }
+    @media screen and (min-width: 756px) {
+        justify-content: center;
+    }
     li {
         padding: 5px;
         list-style-type: none;
         &:not(:last-child) {
             margin-right: 10px;
+        }
+        &.active {
+            a {
+                color: $white;
+                background-color: $green;
+            }
         }
     }
     a {

@@ -1,38 +1,65 @@
 import { Movie } from './component/Movie.js';
 import { Sorting } from './component/Sorting.js';
+import { Filter } from './component/Filter.js';
 
 const urlMovieList = './movie-list-database.json';
-
 const movieTable = document.querySelector('.movie-body-list');
-let numberMovie = 1;
-
-let totalCount = document.querySelector('.total-count');
-
 const sort = document.querySelector('.sort-movies');
+const filterList = document.querySelector('.filter-by-letter');
 
-let moviesArray = getMovieArray();
+const moviesArray = getMovieArray();
+
+showMovie();
+
+filterList.addEventListener('click', (e) => {
+    e.preventDefault();
+    removeActive(filterList.children);
+    e.target.parentNode.classList.add('active');
+    showSearchCount(moviesArray);
+
+
+    if (e.target.getAttribute('data-letter') == 'All') {
+        sortBy(moviesArray);
+    } else if (e.target.tagName == 'A') {
+        let filter = new Filter(moviesArray);
+        let filterArray = filter.filterTitleByLetter(e.target.getAttribute('data-letter'));
+        sortBy(filterArray);
+        showSearchCount(filterArray);
+    }
+});
+
+function removeActive(array) {
+    for (let i = 0; i < array.length; i++) {
+        array[i].classList.remove('active');
+    }
+}
 
 sort.addEventListener('change', (e) => {
     const sortObj = new Sorting(moviesArray);
 
     switch (sort.value) {
-        case 'year':
+        case 'year-up':
             {
-                console.log('sort by year');
-                new Sorting().byYear(moviesArray)
-                removeAllMovie(movieTable);
+                sortBy(sortObj.byYearUp());
                 break;
             }
-        case 'rating':
+        case 'year-down':
             {
-                console.log('sort by rating');
-                removeAllMovie(movieTable);
+                sortBy(sortObj.byYearDown());
+                break;
+            }
+        case 'rating-up':
+            {
+                sortBy(sortObj.byRatingUp());
+                break;
+            }
+        case 'rating-down':
+            {
+                sortBy(sortObj.byRatingDown());
                 break;
             }
         case 'default':
             {
-                console.log('show all');
-                showMovie();
                 break;
             }
         default:
@@ -42,10 +69,24 @@ sort.addEventListener('change', (e) => {
     }
 });
 
+function showSearchCount(array) {
+    let search = document.querySelector('.search-count');
+    search.innerHTML = array.length;
+}
 
-function removeAllMovie(holder) {
-    while (holder.firstChild) {
-        holder.removeChild(holder.firstChild);
+function sortBy(typeSort) {
+    removeAllMovie(movieTable);
+
+    typeSort.forEach(item => {
+        let movie = new Movie(item);
+        movieTable.insertAdjacentHTML('beforeEnd', movie.render());
+    });
+}
+
+
+function removeAllMovie(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
     }
 }
 
@@ -55,7 +96,7 @@ function getMovieArray() {
         .then(response => response.json())
         .then(function(data) {
             data.forEach(item => {
-                arr.push(item);
+                array.push(item);
             });
         });
     return array;
@@ -67,14 +108,8 @@ function showMovie() {
         .then(response => response.json())
         .then(function(data) {
             data.forEach(item => {
-                let movie = new Movie(item, numberMovie);
+                let movie = new Movie(item);
                 movieTable.insertAdjacentHTML('beforeEnd', movie.render());
-                numberMovie++;
             });
-            totalCount.innerHTML = data.length;
         });
 }
-
-
-
-showMovie();

@@ -19,7 +19,7 @@
 
         <div class="filter-holder">
             <ul class="filter-by-letter">
-                <li><a href="#" data-letter='All'>ALL</a></li>
+                <li class="active"><a href="#" data-letter='All'>ALL</a></li>
                 <li><a href="#" data-letter='A'>A</a></li>
                 <li><a href="#" data-letter='B'>B</a></li>
                 <li><a href="#" data-letter='C'>C</a></li>
@@ -55,13 +55,12 @@
                 <p>Search result: <span class="search-count">0</span></p>
             </li>
             <li>
-                <p>Total result: <span class="total-count">0</span></p>
-            </li>
-            <li>
                 <select class="sort-movies">
                     <option value="default">Sort by</option>
-                    <option value="year">Year</option>
-                    <option value="rating">Rating</option>
+                    <option value="year-up">Year (Ascending)</option>
+                    <option value="year-down">Year (Descending)</option>
+                    <option value="rating-up">Rating (Ascending)</option>
+                    <option value="rating-down">Rating  (Descending)</option>
                 </select>
             </li>
         </ul>
@@ -69,7 +68,6 @@
             <table class="movie-list">
                 <thead>
                     <tr>
-                        <th>No.</th>
                         <th>Poster</th>
                         <th>Movie Name</th>
                         <th>Year</th>

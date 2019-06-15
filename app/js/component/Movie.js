@@ -1,12 +1,10 @@
 class Movie {
-    constructor(object, number) {
+    constructor(object) {
         this.object = object;
-        this.number = number;
     }
 
     render() {
         return `<tr class="movie-item">
-                    <td>${this.number}</td>
                     <td>
                         <div class="image-holder">
                             <img src="${this.object.Poster}" alt="${this.object.Title}">
