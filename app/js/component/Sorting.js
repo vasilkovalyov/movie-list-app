@@ -1,10 +1,46 @@
+import { Movie } from './Movie.js';
+
 class Sorting {
     constructor(array) {
         this.array = array;
     }
 
-    getArray() {
-        return this.array;
+    sortBy(typeSort) {
+        const movieTable = document.querySelector('.movie-body-list');
+        new Movie().removeAllMovie(movieTable);
+        typeSort.forEach(item => {
+            let movie = new Movie(item);
+            movieTable.insertAdjacentHTML('beforeEnd', movie.render());
+        });
+    }
+
+    choiseSort(value) {
+        switch (value) {
+            case 'year-up':
+                {
+                    this.sortBy(this.byYearUp());
+                    break;
+                }
+            case 'year-down':
+                {
+                    this.sortBy(this.byYearDown());
+                    break;
+                }
+            case 'rating-up':
+                {
+                    this.sortBy(this.byRatingUp());
+                    break;
+                }
+            case 'rating-down':
+                {
+                    this.sortBy(this.byRatingDown());
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
     }
 
     byYearUp() {

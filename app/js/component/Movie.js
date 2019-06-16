@@ -3,6 +3,12 @@ class Movie {
         this.object = object;
     }
 
+    removeAllMovie(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+
     render() {
         return `<tr class="movie-item" data-movie-id="${this.object.Id}">
                     <td>
