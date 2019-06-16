@@ -4,7 +4,7 @@ class Movie {
     }
 
     render() {
-        return `<tr class="movie-item">
+        return `<tr class="movie-item" data-movie-id="${this.object.Id}">
                     <td>
                         <div class="image-holder">
                             <img src="${this.object.Poster}" alt="${this.object.Title}">

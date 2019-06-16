@@ -31,7 +31,7 @@ class Sorting {
 
     byRatingUp() {
         this.array.sort((a, b) => {
-            if (Math.fround(a.Rating) > Math.fround(b.Rating)) {
+            if (Math.fround(a.imdbRating) > Math.fround(b.imdbRating)) {
                 return 1;
             } else {
                 return -1;
@@ -42,7 +42,7 @@ class Sorting {
 
     byRatingDown() {
         this.array.sort((a, b) => {
-            if (Math.fround(a.Rating) < Math.fround(b.Rating)) {
+            if (Math.fround(a.imdbRating) < Math.fround(b.imdbRating)) {
                 return 1;
             } else {
                 return -1;

@@ -1,13 +1,25 @@
 .movie-wrapper {
+    position: relative;
     width: 100%;
     @media only screen and (max-width: 756px) {
         overflow-x: auto;
         margin: 0 auto;
     }
+    &.not-found {
+        .not-found-msg {
+            display: block;
+        }
+    }
+}
+
+.not-found-msg {
+    display: none;
+    text-align: center;
 }
 
 .movie-list {
     width: 100%;
+    margin-bottom: 20px;
     th {
         background: $green;
         color: $white;
